@@ -35,14 +35,14 @@ Try running these code examples at https://skilldrick.github.io/easy6502/
 # Answers to Exercises
 The links below lead to the questions and answers for the end-of-chapter exercises.
 
-[Exercise 1](Answers%20to%20Exercises/Ex__1_single_digit_adder.md)
+[Exercise 1](Answers%20to%20Exercises/Ex__1_single_digit_adder.md): Simulate a decimal adder that operates in the same manner as Babbage’s Analytical Engine.
 
-[Exercise 2](Answers%20to%20Exercises/Ex__2_40_digit_adder.md)
+[Exercise 2](Answers%20to%20Exercises/Ex__2_40_digit_adder.md): Extend the adder to 40‑digit decimal numbers with digitwise carries.
 
-[Exercise 3](Answers%20to%20Exercises/Ex__3_40_digit_subtractor.md)
+[Exercise 3](Answers%20to%20Exercises/Ex__3_40_digit_subtractor.md): Adapt the 40‑digit adder to perform subtraction with borrowing.
 
-[Exercise 4](Answers%20to%20Exercises/Ex__4_16_bit_add.md)
+[Exercise 4](Answers%20to%20Exercises/Ex__4_16_bit_add.md): Write 16‑bit addition in 6502 assembly using zero‑page memory and carry.
 
-[Exercise 5](Answers%20to%20Exercises/Ex__5_16_bit_sub.md)
+[Exercise 5](Answers%20to%20Exercises/Ex__5_16_bit_sub.md): Write 16‑bit subtraction in 6502 assembly, handling borrow and underflow.
 
-[Exercise 6](Answers%20to%20Exercises/Ex__6_32_bit_add.md)
+[Exercise 6](Answers%20to%20Exercises/Ex__6_32_bit_add.md): Create a loop in 6502 assembly to add two 32‑bit integers byte by byte.

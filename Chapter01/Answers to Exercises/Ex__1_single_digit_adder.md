@@ -15,11 +15,11 @@ Test your code with these sums: 0+0, 0+1, 1+0, 1+2, 5+5, 9+1, and 9+9.
 
 
 # Answer
-See the python file [Ex__1_single_digit_adder.py](src/Ex__1_single_digit_adder.py) for the adder code.
+See the Python file [Ex__1_single_digit_adder.py](src/Ex__1_single_digit_adder.py) for the adder code.
 
 See the file [Ex__1_test_single_digit_adder.py](src/Ex__1_test_single_digit_adder.py) for the test code.
 
-To execute the tests, assuming **python** is installed and is in your path, execute the command `python Ex__1_test_single_digit_adder.py`
+To execute the tests, assuming **Python** is installed and is in your path, execute the command `python Ex__1_test_single_digit_adder.py`
 
 This is the output of a test run:
 ```
