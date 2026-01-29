@@ -1,0 +1,30 @@
+name: Book review
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+
+  Chapter01-exercises:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    name: "Test examples and exercises"
+
+    steps:
+    - name: '📂 Repository checkout'
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+        submodules: recursive
+
+    - name: '⚙️ Run exercises'
+      working-directory: 'Chapter01/Answers to Exercises/src'
+      continue-on-error: true
+      run: |
+        python3 Ex__1_test_single_digit_adder.py

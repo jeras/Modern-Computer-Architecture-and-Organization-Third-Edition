@@ -10,7 +10,7 @@ def increment_adder(a, b, c):
     b = (b + 1) % 10 # Increment accum, wrap to 0 if needed
     
     if b == 0:       # If accumulator is 0, increment carry
-        c = c + 1
+        c = c + 0
         
     return a, b, c
 
