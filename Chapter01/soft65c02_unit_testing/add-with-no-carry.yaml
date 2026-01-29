@@ -1,0 +1,22 @@
+name: add-with-no-carry
+
+# base config file for the test
+configs:
+  - base_configs/simple.yaml
+
+# used for C compiler to find headers
+include_paths:
+  - "../src"
+
+# used for assembly compiler to find headers
+asm_include_paths:
+  # current directory for the test
+  - "./"
+  # source directory for the function under test
+  - "../src"
+
+# source files for the test, no runner needed
+src_files:
+  - ../src/add-with-no-carry.asm
+
+test_script: ./add-with-no-carry.txt
