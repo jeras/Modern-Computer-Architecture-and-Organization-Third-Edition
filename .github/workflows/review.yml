@@ -51,6 +51,7 @@ jobs:
         python3 Ex__3_test_single_digit_subtractor.py
         python3 Ex__3_test_40_digit_subtractor.py
 
+    - name: '⚙️ Run 6502 ASM tests on examples and exercises'
       working-directory: 'Chapter01/soft65c02_unit_testing'
       continue-on-error: false
       run: |
