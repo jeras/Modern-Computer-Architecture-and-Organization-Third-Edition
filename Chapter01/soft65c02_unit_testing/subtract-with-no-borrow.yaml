@@ -1,4 +1,4 @@
-name: add-with-carry
+name: subtract-with-no-borrow
 
 # base config file for the test
 configs:
@@ -17,6 +17,6 @@ asm_include_paths:
 
 # source files for the test, no runner needed
 src_files:
-  - ../src/add-with-carry.asm
+  - ../src/subtract-with-no-borrow.asm
 
-test_script: ./add-with-carry.txt
+test_script: ./subtract-with-no-borrow.txt

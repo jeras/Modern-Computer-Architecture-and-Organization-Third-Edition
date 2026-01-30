@@ -1,0 +1,58 @@
+//////////////////////////////////////////////////////////////////////////////////
+marker $$testing Ex__5_16_bit_subtraction$$
+//////////////////////////////////////////////////////////////////////////////////
+
+// load memory and flush registers
+memory load atari "${BINARY_PATH}"
+registers flush
+
+// show system state
+disassemble #0x0600 0x28
+
+
+// (0x0001 - 0x0000) = 0x0001
+
+// write operands
+memory write #0x0200 0x(01,00)
+memory write #0x0202 0x(00,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(01,00)  $$expected addition result$$
+
+
+// (0x0001 - 0x0001) = 0x0000
+
+// write operands
+memory write #0x0200 0x(01,00)
+memory write #0x0202 0x(01,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(00,00)  $$expected addition result$$
+
+
+// (0x0001 - 0x00FF) = 0xff02
+
+// write operands
+memory write #0x0200 0x(01,00)
+memory write #0x0202 0x(ff,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(02,ff)  $$expected addition result$$
+
+
+// (0x0000 - 0x0001) = 0xffff
+
+// write operands
+memory write #0x0200 0x(00,00)
+memory write #0x0202 0x(01,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(ff,ff)  $$expected addition result$$

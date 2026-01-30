@@ -1,0 +1,58 @@
+//////////////////////////////////////////////////////////////////////////////////
+marker $$testing Ex__6_32_bit_addition$$
+//////////////////////////////////////////////////////////////////////////////////
+
+/// load memory and flush registers
+memory load atari "${BINARY_PATH}"
+registers flush
+
+// show system state
+disassemble #0x0600 0x40
+
+
+// (0x00000001 + 0x00000001) = 0x00000002
+
+// write operands
+memory write #0x0200 0x(01,00,00,00)
+memory write #0x0204 0x(01,00,00,00)
+// run program
+registers flush
+run #0x0624 until CP=0x0636
+// check results
+assert #0x0208 ~ 0x(02,00,00,00)  $$expected addition result$$
+
+
+// (0x0000FFFF + 0x00000001) = 0x00010000
+
+// write operands
+memory write #0x0200 0x(ff,ff,00,00)
+memory write #0x0204 0x(01,00,00,00)
+// run program
+registers flush
+run #0x0624 until CP=0x0636
+// check results
+assert #0x0208 ~ 0x(00,00,01,00)  $$expected addition result$$
+
+
+// (0xFFFFFFFE + 0x00000001) = 0xffffffff
+
+// write operands
+memory write #0x0200 0x(fe,ff,ff,ff)
+memory write #0x0204 0x(01,00,00,00)
+// run program
+registers flush
+run #0x0624 until CP=0x0636
+// check results
+assert #0x0208 ~ 0x(ff,ff,ff,ff)  $$expected addition result$$
+
+
+// (0xFFFFFFFF + 0x00000001) = 0x00000000
+
+// write operands
+memory write #0x0200 0x(ff,ff,ff,ff)
+memory write #0x0204 0x(01,00,00,00)
+// run program
+registers flush
+run #0x0624 until CP=0x0636
+// check results
+assert #0x0208 ~ 0x(00,00,00,00)  $$expected addition result$$

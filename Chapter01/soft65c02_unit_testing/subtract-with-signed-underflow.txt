@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////////
-marker $$testing add-with-carry$$
+marker $$testing subtract-with-signed-underflow$$
 //////////////////////////////////////////////////////////////////////////////////
 
 // load memory and flush registers
@@ -15,4 +15,5 @@ run #0x0600 until CP=0x0605
 
 // check results
 registers show
-assert A = 0x03  $$expected addition result$$
+assert A = 0x7f        $$expected subtraction result$$
+assert S = 0b01110001  $$expected subtraction flags$$

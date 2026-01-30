@@ -1,4 +1,4 @@
-name: subtract-with-unsigned-underflow
+name: Ex__6_32_bit_addition
 
 # base config file for the test
 configs:
@@ -6,17 +6,17 @@ configs:
 
 # used for C compiler to find headers
 include_paths:
-  - "../src"
+  - "../Answers to Exercises/src/"
 
 # used for assembly compiler to find headers
 asm_include_paths:
   # current directory for the test
   - "./"
   # source directory for the function under test
-  - "../src"
+  - "../Answers to Exercises/src/"
 
 # source files for the test, no runner needed
 src_files:
-  - ../src/subtract-with-unsigned-underflow.asm
+  - "../Answers to Exercises/src/Ex__6_32_bit_addition.asm"
 
-test_script: ./subtract-with-unsigned-underflow.txt
+test_script: ./Ex__6_32_bit_addition.txt

@@ -1,0 +1,46 @@
+//////////////////////////////////////////////////////////////////////////////////
+marker $$testing Ex__4_16_bit_addition$$
+//////////////////////////////////////////////////////////////////////////////////
+
+// load memory and flush registers
+memory load atari "${BINARY_PATH}"
+registers flush
+
+// show system state
+disassemble #0x0600 0x28
+
+
+// (0x0000 + 0x0001) = 0x0001
+
+// write operands
+memory write #0x0200 0x(00,00)
+memory write #0x0202 0x(01,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(01,00)  $$expected addition result$$
+
+
+// (0x00FF + 0x0001) = 0x0100
+
+// write operands
+memory write #0x0200 0x(ff,00)
+memory write #0x0202 0x(01,00)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(00,01)  $$expected addition result$$
+
+
+// (0x1234 + 0x5678) = 0x68ac
+
+// write operands
+memory write #0x0200 0x(34,12)
+memory write #0x0202 0x(78,56)
+// run program
+registers flush
+run #0x0614 until CP=0x0627
+// check results
+assert #0x0204 ~ 0x(ac,68)  $$expected addition result$$
