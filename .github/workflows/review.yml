@@ -23,6 +23,25 @@ jobs:
         fetch-depth: 0
         submodules: recursive
 
+    - name: '📦 Install cc65 (complete cross development package for 65(C)02 systems)'
+      run: |
+        sudo apt update
+        sudo apt install cc65
+
+    - name: '📦 Install Soft 65C02 (simulator, unit tester)'
+      run: |
+        git clone git@github.com:chanmix51/soft65c02.git
+        cd soft65c02
+        git checkout 76ab337 # known to work hash from 30 Jan 2026
+        cargo build --workspace --release
+        cargo install --path soft65c02_tester
+        cargo install --path soft65c02_unit
+
+    - name: '🔍 Check tools'
+      run: |
+        cc65 --version
+        soft65c02_unit --version
+
     - name: '⚙️ Run exercises 1~3, Babbage’s Analytical Engine addition/subtraction (examples in Python)'
       working-directory: 'Chapter01/Answers to Exercises/src'
       continue-on-error: false
@@ -31,3 +50,18 @@ jobs:
         python3 Ex__2_test_40_digit_adder.py
         python3 Ex__3_test_single_digit_subtractor.py
         python3 Ex__3_test_40_digit_subtractor.py
+
+      working-directory: 'Chapter01/soft65c02_unit_testing'
+      continue-on-error: false
+      run: |
+        soft65c02_unit -v -i add-with-carry.yaml                   -b add-with-carry
+        soft65c02_unit -v -i add-with-no-carry.yaml                -b add-with-no-carry
+        soft65c02_unit -v -i add-with-signed-overflow.yaml         -b add-with-signed-overflow
+        soft65c02_unit -v -i add-with-unsigned-overflow.yaml       -b add-with-unsigned-overflow
+        soft65c02_unit -v -i subtract-with-borrow.yaml             -b subtract-with-borrow
+        soft65c02_unit -v -i subtract-with-no-borrow.yaml          -b subtract-with-no-borrow
+        soft65c02_unit -v -i subtract-with-signed-underflow.yaml   -b subtract-with-signed-underflow
+        soft65c02_unit -v -i subtract-with-unsigned-underflow.yaml -b subtract-with-unsigned-underflow
+        soft65c02_unit -v -i Ex__4_16_bit_addition.yaml            -b Ex__4_16_bit_addition
+        soft65c02_unit -v -i Ex__5_16_bit_subtraction.yaml         -b Ex__5_16_bit_subtraction
+        soft65c02_unit -v -i Ex__6_32_bit_addition.yaml            -b Ex__6_32_bit_addition
