@@ -41,10 +41,10 @@ jobs:
       run: |
         curl -L -O https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-02-12/oss-cad-suite-linux-x64-20260212.tgz
         tar -xzf oss-cad-suite-linux-x64-*.tgz
-        . oss-cad-suite/environment
 
     - name: '🔍 Check tools'
       run: |
+        . $GITHUB_WORKSPACE/oss-cad-suite/environment
         cc65 --version
         soft65c02_unit --version
         ghdl --version
@@ -79,6 +79,7 @@ jobs:
       working-directory: 'Chapter02/Answers to Exercises/Code Files'
       continue-on-error: false
       run: |
+        . $GITHUB_WORKSPACE/oss-cad-suite/environment
         ./Ex__5_adder4_testbench.sh
         ./Ex__6_adder4_fulltestbench.sh
 
@@ -86,4 +87,5 @@ jobs:
       working-directory: 'Chapter03/Answers to Exercises/Code Files'
       continue-on-error: false
       run: |
+        . $GITHUB_WORKSPACE/oss-cad-suite/environment
         ./Ex__3_vhdl_overflow.sh
