@@ -7,7 +7,7 @@ In the 1980s, during the early days of personal computing, students and technica
 
 Today, numerous specialized computing architectures exist to address the diverse needs of users. We carry miniature computers in our pockets and purses that can place phone calls, record video, and function as full participants on the internet. Personal computers remain popular in a format that is outwardly similar to those of past decades. Today’s PCs, however, are orders of magnitude more capable than earlier generations in terms of computing power, memory size, disk space, graphics performance, and communication ability. These capabilities enable modern personal computers to perform tasks that would have been inconceivable on early PCs, such as real-time generation of high-resolution 3D video.
 
-Companies offer web services to hundreds of millions of from vast warehouses filled with thousands of tightly coordinated computer systems capable of responding to a constant stream of user requests with extraordinary speed and precision. Machine learning systems are trained through the analysis of enormous quantities of data to perform complex activities such as driving automobiles and chatting with users in a human-like manner.
+Companies offer web services to hundreds of millions of users from vast warehouses filled with thousands of tightly coordinated computer systems capable of responding to a constant stream of user requests with extraordinary speed and precision. Machine learning systems are trained through the analysis of enormous quantities of data to perform complex activities such as driving automobiles and chatting with users in a human-like manner.
 
 This chapter begins with a presentation of some key historical computing devices and the technological leaps associated with them. We then explore modern trends arising from these advances, introduce the fundamental concepts of computer architecture, and provide an overview of the 6502 microprocessor along with its instruction set. The following topics will be covered in this chapter:
 
@@ -16,19 +16,18 @@ This chapter begins with a presentation of some key historical computing devices
 * Computer architecture
 
 # Chapter Files
-
 The following 6502 assembly code snippets appear in Table 1.4:
 
 | File                                                                             | Description                             |
 |----------------------------------------------------------------------------------|-----------------------------------------|
-| [add-with-no-carry.asm](src/add-with-no-carry.asm)                               | 8-bit addition with no Carry input.     |
-| [add-with-carry.asm](src/add-with-carry.asm)                                     | 8-bit addition with a Carry input.      |
-| [subtract-with-no-borrow.asm](src/subtract-with-no-borrow.asm)                   | 8-bit subtraction with no Borrow input. |
-| [subtract-with-borrow.asm](src/subtract-with-borrow.asm)                         | 8-bit subtraction with a Borrow input.  |
-| [add-with-unsigned-overflow.asm](src/add-with-unsigned-overflow.asm)             | Addition with unsigned overflow.        |
-| [subtract-with-unsigned-underflow.asm](src/subtract-with-unsigned-underflow.asm) | Subtraction with unsigned underflow.    |
-| [add-with-signed-overflow.asm](src/add-with-signed-overflow.asm)                 | Addition with signed overflow.          |
-| [subtract-with-signed-underflow.asm](src/subtract-with-signed-underflow.asm)     | Subtraction with signed underflow.      |
+| [add-with-no-carry.asm](Chapter%20Files/add-with-no-carry.asm)                               | 8-bit addition with no Carry input.     |
+| [add-with-carry.asm](Chapter%20Files/add-with-carry.asm)                                     | 8-bit addition with a Carry input.      |
+| [subtract-with-no-borrow.asm](Chapter%20Files/subtract-with-no-borrow.asm)                   | 8-bit subtraction with no Borrow input. |
+| [subtract-with-borrow.asm](Chapter%20Files/subtract-with-borrow.asm)                         | 8-bit subtraction with a Borrow input.  |
+| [add-with-unsigned-overflow.asm](Chapter%20Files/add-with-unsigned-overflow.asm)             | Addition with unsigned overflow.        |
+| [subtract-with-unsigned-underflow.asm](Chapter%20Files/subtract-with-unsigned-underflow.asm) | Subtraction with unsigned underflow.    |
+| [add-with-signed-overflow.asm](Chapter%20Files/add-with-signed-overflow.asm)                 | Addition with signed overflow.          |
+| [subtract-with-signed-underflow.asm](Chapter%20Files/subtract-with-signed-underflow.asm)     | Subtraction with signed underflow.      |
 
 Try running these code examples at https://skilldrick.github.io/easy6502/
 
