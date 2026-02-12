@@ -27,7 +27,6 @@ jobs:
       run: |
         sudo apt update
         sudo apt install cc65
-        sudo apt install ghdl
 
     - name: '📦 Install Soft 65C02 (simulator, unit tester)'
       run: |
@@ -38,10 +37,18 @@ jobs:
         cargo install --path soft65c02_tester
         cargo install --path soft65c02_unit
 
+    - name: '📦 Install OSS CAD Suite'
+      run: |
+        curl -L -O https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-02-12/oss-cad-suite-linux-x64-20260212.tgz
+        tar -xzf oss-cad-suite-linux-x64-*.tgz
+        . oss-cad-suite/environment
+
     - name: '🔍 Check tools'
       run: |
         cc65 --version
         soft65c02_unit --version
+        ghdl --version
+        yosys --version
 
     - name: '⚙️ Chapter 01: Run exercises 1~3, Babbage’s Analytical Engine addition/subtraction (examples in Python)'
       working-directory: 'Chapter01/Answers to Exercises/Code Files'
@@ -74,3 +81,9 @@ jobs:
       run: |
         ./Ex__5_adder4_testbench.sh
         ./Ex__6_adder4_fulltestbench.sh
+
+    - name: '⚙️ Chapter 03: Run VHDL testbenches using GHDL'
+      working-directory: 'Chapter03/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        ./Ex__3_vhdl_overflow.sh
