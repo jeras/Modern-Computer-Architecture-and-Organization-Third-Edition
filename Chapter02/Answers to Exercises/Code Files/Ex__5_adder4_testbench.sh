@@ -13,4 +13,4 @@ ghdl -e ADDER4_TESTBENCH
 ghdl -r ADDER4_TESTBENCH --wave=Ex__5_adder4_testbench.ghw
 
 # open waveform with GTKWave
-gtkwave Ex__5_adder4_testbench.ghw --save=Ex__5_adder4_testbench.gtkw
+#gtkwave Ex__5_adder4_testbench.ghw --save=Ex__5_adder4_testbench.gtkw

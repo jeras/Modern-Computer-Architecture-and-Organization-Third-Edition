@@ -13,5 +13,4 @@ ghdl -e ADDER4_TESTBENCH
 ghdl -r ADDER4_TESTBENCH --wave=Ex__6_adder4_fulltestbench.ghw
 
 # open waveform with GTKWave
-
-gtkwave Ex__6_adder4_fulltestbench.ghw --save=Ex__6_adder4_fulltestbench.gtkw
+#gtkwave Ex__6_adder4_fulltestbench.ghw --save=Ex__6_adder4_fulltestbench.gtkw

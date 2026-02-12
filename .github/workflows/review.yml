@@ -27,6 +27,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt install cc65
+        sudo apt install ghdl
 
     - name: '📦 Install Soft 65C02 (simulator, unit tester)'
       run: |
@@ -42,7 +43,7 @@ jobs:
         cc65 --version
         soft65c02_unit --version
 
-    - name: '⚙️ Run exercises 1~3, Babbage’s Analytical Engine addition/subtraction (examples in Python)'
+    - name: '⚙️ Chapter 01: Run exercises 1~3, Babbage’s Analytical Engine addition/subtraction (examples in Python)'
       working-directory: 'Chapter01/Answers to Exercises/src'
       continue-on-error: false
       run: |
@@ -51,7 +52,7 @@ jobs:
         python3 Ex__3_test_single_digit_subtractor.py
         python3 Ex__3_test_40_digit_subtractor.py
 
-    - name: '⚙️ Run 6502 ASM tests on examples and exercises'
+    - name: '⚙️ Chapter 01: Run 6502 ASM tests on examples and exercises'
       working-directory: 'Chapter01/soft65c02_unit_testing'
       continue-on-error: false
       run: |
@@ -66,3 +67,10 @@ jobs:
         soft65c02_unit -v -i Ex__4_16_bit_addition.yaml            -b Ex__4_16_bit_addition
         soft65c02_unit -v -i Ex__5_16_bit_subtraction.yaml         -b Ex__5_16_bit_subtraction
         soft65c02_unit -v -i Ex__6_32_bit_addition.yaml            -b Ex__6_32_bit_addition
+
+    - name: '⚙️ Chapter 02: Run VHDL testbenches using GHDL'
+      working-directory: 'Chapter02/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        ./Ex__5_adder4_testbench.sh
+        ./Ex__6_adder4_fulltestbench.sh
