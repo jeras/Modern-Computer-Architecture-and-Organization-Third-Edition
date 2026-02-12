@@ -44,7 +44,7 @@ jobs:
         soft65c02_unit --version
 
     - name: '⚙️ Chapter 01: Run exercises 1~3, Babbage’s Analytical Engine addition/subtraction (examples in Python)'
-      working-directory: 'Chapter01/Answers to Exercises/src'
+      working-directory: 'Chapter01/Answers to Exercises/Code Files'
       continue-on-error: false
       run: |
         python3 Ex__1_test_single_digit_adder.py

@@ -6,17 +6,17 @@ configs:
 
 # used for C compiler to find headers
 include_paths:
-  - "../Answers to Exercises/src/"
+  - "../Answers to Exercises/Code Files/"
 
 # used for assembly compiler to find headers
 asm_include_paths:
   # current directory for the test
   - "./"
   # source directory for the function under test
-  - "../Answers to Exercises/src/"
+  - "../Answers to Exercises/Code Files/"
 
 # source files for the test, no runner needed
 src_files:
-  - "../Answers to Exercises/src/Ex__4_16_bit_addition.asm"
+  - "../Answers to Exercises/Code Files/Ex__4_16_bit_addition.asm"
 
 test_script: ./Ex__4_16_bit_addition.txt
