@@ -4,10 +4,10 @@ library IEEE;
   use IEEE.STD_LOGIC_1164.ALL;
   use IEEE.NUMERIC_STD.ALL;
 
-entity ADDER4_TESTBENCH is
-end entity ADDER4_TESTBENCH;
+entity ADDER4_FULLTESTBENCH is
+end entity ADDER4_FULLTESTBENCH;
 
-architecture BEHAVIORAL of ADDER4_TESTBENCH is
+architecture BEHAVIORAL of ADDER4_FULLTESTBENCH is
 
   component ADDER4 is
     port (
