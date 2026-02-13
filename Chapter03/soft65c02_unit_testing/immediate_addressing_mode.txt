@@ -1,0 +1,18 @@
+//////////////////////////////////////////////////////////////////////////////////
+marker $$testing immediate_addressing_mode$$
+//////////////////////////////////////////////////////////////////////////////////
+
+// load memory and flush registers
+memory load atari "${BINARY_PATH}"
+registers flush
+
+// show system state
+disassemble #0x0600 0x0a
+registers show
+
+// run program
+run #0x0600 until CP=0x0609
+
+// check results
+registers show
+assert A = 0x0a  $$expected addition result$$
