@@ -1,0 +1,27 @@
+//////////////////////////////////////////////////////////////////////////////////
+marker $$testing Ex__4_checksum_alg$$
+//////////////////////////////////////////////////////////////////////////////////
+
+// load memory and flush registers
+memory load atari "${BINARY_PATH}"
+registers flush
+
+// // write string and checksum into memory
+// memory write #0x0400 "Hello, World!\x69"
+// 
+// // initialize pointer at address $10-$11 to point to start of data
+// memory write #0x10 0x(00,04)
+// 
+// // initialize string+checksum size
+// registers set X=0x10
+
+// show system state
+disassemble #0x0600 0x33
+registers show
+
+// run program (until BRK instruction)
+run #0x0600 until CP=0x0000
+
+// check results
+registers show
+assert A = 0x01  $$correct checksum$$
