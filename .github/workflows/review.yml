@@ -85,8 +85,7 @@ jobs:
 
     - name: '⚙️ Chapter 03: Run VHDL testbenches using GHDL'
       working-directory: 'Chapter03/Answers to Exercises/Code Files'
-#      continue-on-error: false
-      continue-on-error: true
+      continue-on-error: false
       run: |
         . $GITHUB_WORKSPACE/oss-cad-suite/environment
         ./Ex__3_vhdl_overflow.sh
