@@ -103,3 +103,9 @@ jobs:
         soft65c02_unit -v -i Ex__4_checksum_alg.yaml                  -b Ex__4_checksum_alg
         soft65c02_unit -v -i Ex__5_checksum_subroutine.yaml           -b Ex__5_checksum_subroutine
         soft65c02_unit -v -i Ex__6_checksum_tests.yaml                -b Ex__6_checksum_tests
+
+    - name: '⚙️ Chapter 06: Run exercise 2, DCT formula (example in Python)'
+      working-directory: 'Chapter06/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__2_dct_formula.py
