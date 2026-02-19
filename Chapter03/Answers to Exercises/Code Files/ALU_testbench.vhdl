@@ -12,6 +12,7 @@ architecture BEHAVIORAL of ALU_TESTBENCH is
     signal RIGHT  : std_logic_vector(7 downto 0);  -- Right operand
     signal OPCODE : std_logic_vector(3 downto 0);  -- ALU operation
     signal C_IN   : std_logic;                     -- Carry input
+    signal V_IN   : std_logic;                     -- Overflow input
     signal RESULT : std_logic_vector(7 downto 0);  -- ALU output
     signal C_OUT  : std_logic;                     -- Carry output
     signal N_OUT  : std_logic;                     -- Negative flag output
@@ -27,6 +28,7 @@ begin
       RIGHT  => RIGHT ,
       OPCODE => OPCODE,
       C_IN   => C_IN  ,
+      V_IN   => V_IN  ,
       RESULT => RESULT,
       C_OUT  => C_OUT ,
       N_OUT  => N_OUT ,
@@ -39,6 +41,7 @@ begin
 
     OPCODE <= B"0000";  -- addition
     C_IN   <= '0';      -- no carry
+    V_IN   <= '0';      -- no overflow
 
     LEFT  <= std_logic_vector(to_signed(126, 8));
     RIGHT <= std_logic_vector(to_signed(  1, 8));
