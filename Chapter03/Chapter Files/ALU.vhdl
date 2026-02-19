@@ -18,6 +18,8 @@ entity ALU is
     OPCODE      : in    std_logic_vector(3 downto 0);
     -- Carry input
     C_IN        : in    std_logic;
+    -- Overflow input
+    V_IN        : in    std_logic;
     -- ALU output
     RESULT      : out   std_logic_vector(7 downto 0);
     -- Carry output
@@ -37,13 +39,16 @@ architecture BEHAVIORAL of ALU is
 
 begin
 
-  P_ALU : process (LEFT, RIGHT, OPCODE, C_IN) is
+  P_ALU : process (ALL) is
 
     variable result8  : unsigned(7 downto 0);
     variable result9  : unsigned(8 downto 0);
     variable right_op : unsigned(7 downto 0);
 
   begin
+    -- Default outputs
+    C_OUT <= C_IN;
+    V_OUT <= V_IN;
 
     case OPCODE is
 

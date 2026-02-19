@@ -6,7 +6,7 @@ Search the internet for free VHDL development software suites that include a sim
 # Answer
 Some freely available VHDL development suites are listed here:
 1.	Xilinx Vivado Design Suite is available at https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html.
-2.	Intel® Quartus® Prime Software Lite Edition is available at https://www.intel.com/content/www/us/en/collections/products/fpga/software/downloads.html.
+2.	Altera Quartus® Prime Lite Edition is available at https://www.altera.com/products/development-tools/quartus.
 3.	The open source GHDL simulator for VHDL is available at https://github.com/ghdl/ghdl.
 4.	Electronic Design Automation (EDA) Playground is available at https://www.edaplayground.com.
 
