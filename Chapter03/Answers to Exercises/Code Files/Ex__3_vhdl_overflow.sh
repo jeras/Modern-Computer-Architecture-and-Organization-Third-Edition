@@ -12,7 +12,8 @@ ghdl -e --std=08 ALU_TESTBENCH
 ghdl -r --std=08 ALU_TESTBENCH --wave=ALU_testbench.ghw
 
 # synthesize
-yosys -m ghdl -p 'ghdl --std=08 ALU.vhdl -e ALU; proc; opt; show'
+#yosys -m ghdl -p 'ghdl --std=08 ALU.vhdl -e ALU; proc; opt; show'
+yosys -m ghdl -p 'ghdl --std=08 ALU.vhdl -e ALU; proc; opt'
 
 # open waveform with GTKWave
 #gtkwave ALU_testbench.ghw --save=ALU_testbench.gtkw
