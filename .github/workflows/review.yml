@@ -108,3 +108,9 @@ jobs:
       continue-on-error: false
       run: |
         python3 Ex__2_dct_formula.py
+
+    - name: '⚙️ Chapter 07: Run exercise 3, column major order (example in Python)'
+      working-directory: 'Chapter07/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__3_row_column_major_order.py
