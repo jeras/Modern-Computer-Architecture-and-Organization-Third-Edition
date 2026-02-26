@@ -15,6 +15,15 @@ We will discuss the following specialized extensions in this chapter:
 # Chapter Files
 [integer_division.cpp](Chapter%20Files/integer_division.cpp) is an example of integer division in C++.
 
+On Linux the source code can be compiled using the command line:
+```Bash
+g++ integer_division.cpp -o integer_division
+```
+And the generated executable `integer_division` can be run with:
+```Bash
+./integer_division
+```
+
 # Answers to Exercises
 The links below lead to the questions and answers for the end-of-chapter exercises.
 
