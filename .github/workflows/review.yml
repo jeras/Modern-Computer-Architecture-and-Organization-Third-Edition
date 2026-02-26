@@ -130,3 +130,9 @@ jobs:
         ./float_format
         g++ Ex__2_double_format.cpp -o double_format
         ./double_format
+
+    - name: '⚙️ Chapter 17: Run exercise 1, compute block hash (example in Python)'
+      working-directory: 'Chapter17/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__1_compute_block_hash.py
