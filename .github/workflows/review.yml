@@ -114,3 +114,19 @@ jobs:
       continue-on-error: false
       run: |
         python3 Ex__3_row_column_major_order.py
+
+    - name: '⚙️ Chapter 09: Chapter Files (example in C++)'
+      working-directory: 'Chapter09/Chapter Files'
+      continue-on-error: true
+      run: |
+        g++ integer_division.cpp -o integer_division
+        ./integer_division
+
+    - name: '⚙️ Chapter 09: Answers to Exercises (examples in C++)'
+      working-directory: 'Chapter09/Answers to Exercises/Code Files'
+      continue-on-error: true
+      run: |
+        g++ Ex__1_float_format.cpp -o float_format
+        ./float_format
+        g++ Ex__2_double_format.cpp -o double_format
+        ./double_format
