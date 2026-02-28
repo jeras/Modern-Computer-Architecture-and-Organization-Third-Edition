@@ -42,6 +42,12 @@ jobs:
         curl -L -O https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2026-02-12/oss-cad-suite-linux-x64-20260212.tgz
         tar -xzf oss-cad-suite-linux-x64-*.tgz
 
+    - name: '📦 Install ARM cross compiler and Qemu'
+      run: |
+        sudo apt install gcc-arm-linux-gnueabihf libc6-dev-armhf-cross
+        sudo apt install gcc-aarch64-linux-gnu libc6-dev-arm64-cross
+        sudo apt install qemu-system-arm qemu-user qemu-user-static
+
     - name: '🔍 Check tools'
       run: |
         . $GITHUB_WORKSPACE/oss-cad-suite/environment
@@ -130,6 +136,72 @@ jobs:
         ./float_format
         g++ Ex__2_double_format.cpp -o double_format
         ./double_format
+
+    - name: '⚙️ Chapter 10: Run exercise 3, neuron activation function (example in Python)'
+      working-directory: 'Chapter10/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__3_activation_func.py
+
+    - name: '⚙️ Chapter 11: Chapter Files (examples in ARM assembly)'
+      working-directory: 'Chapter11/Chapter Files'
+      continue-on-error: true
+      run: |
+        arm-linux-gnueabihf-as -al=hello_arm.lst -o hello_arm.o hello_arm.S
+        arm-linux-gnueabihf-ld -o hello_arm hello_arm.o
+        cat hello_arm.lst
+        qemu-arm -L /usr/arm-linux-gnueabihf/ hello_arm
+
+    - name: '⚙️ Chapter 11: Chapter Files (examples in ARM64 assembly)'
+      working-directory: 'Chapter11/Chapter Files'
+      continue-on-error: true
+      run: |
+        aarch64-linux-gnu-as -al=hello_arm64.lst -o hello_arm64.o hello_arm64.S
+        aarch64-linux-gnu-ld -o hello_arm64 hello_arm64.o
+        cat hello_arm64.lst
+        qemu-aarch64 -L /usr/aarch64-linux-gnu/ hello_arm64
+
+    - name: '⚙️ Chapter 11: Answers to Exercises, Exercise 5 (examples in ARM assembly)'
+      working-directory: 'Chapter11/Answers to Exercises/Code Files'
+      continue-on-error: true
+      run: |
+        arm-linux-gnueabihf-as -al=Ex__5_hello_arm.lst -o Ex__5_hello_arm.o Ex__5_hello_arm.S
+        arm-linux-gnueabihf-ld -o Ex__5_hello_arm Ex__5_hello_arm.o
+        qemu-arm -L /usr/arm-linux-gnueabihf/ Ex__5_hello_arm
+        cat Ex__5_hello_arm.lst
+
+    - name: '⚙️ Chapter 11: Answers to Exercises, Exercise 6 (examples in ARM assembly)'
+      working-directory: 'Chapter11/Answers to Exercises/Code Files'
+      continue-on-error: true
+      run: |
+        arm-linux-gnueabihf-as -al=Ex__6_expr_arm.lst -o Ex__6_expr_arm.o Ex__6_expr_arm.S
+        arm-linux-gnueabihf-ld -o Ex__6_expr_arm Ex__6_expr_arm.o
+        qemu-arm -L /usr/arm-linux-gnueabihf/ Ex__6_expr_arm
+        cat Ex__6_expr_arm.lst
+
+    - name: '⚙️ Chapter 11: Answers to Exercises, Exercise 7 (examples in ARM64 assembly)'
+      working-directory: 'Chapter11/Answers to Exercises/Code Files'
+      continue-on-error: true
+      run: |
+        aarch64-linux-android-as -al=Ex__7_hello_arm64.lst -o Ex__7_hello_arm64.o Ex__7_hello_arm64.S
+        aarch64-linux-android-ld -o Ex__7_hello_arm64 Ex__7_hello_arm64.o
+        qemu-aarch64 -L /usr/aarch64-linux-gnu/ Ex__7_hello_arm64
+        cat Ex__7_hello_arm64.lst
+
+    - name: '⚙️ Chapter 11: Answers to Exercises, Exercise 8 (examples in ARM64 assembly)'
+      working-directory: 'Chapter11/Answers to Exercises/Code Files'
+      continue-on-error: true
+      run: |
+        aarch64-linux-android-as -al=Ex__8_expr_arm64.lst -o Ex__8_expr_arm64.o Ex__8_expr_arm64.S
+        aarch64-linux-android-ld -o Ex__8_expr_arm64 Ex__8_expr_arm64.o
+        qemu-aarch64 -L /usr/aarch64-linux-gnu/ Ex__8_expr_arm64
+        cat Ex__8_expr_arm64.lst
+
+    - name: '⚙️ Chapter 17: Run exercise 1, compute block hash (example in Python)'
+      working-directory: 'Chapter17/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__1_compute_block_hash.py
 
     - name: '⚙️ Chapter 17: Run exercise 1, compute block hash (example in Python)'
       working-directory: 'Chapter17/Answers to Exercises/Code Files'
