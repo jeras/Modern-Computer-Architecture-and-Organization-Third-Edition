@@ -203,12 +203,6 @@ jobs:
       run: |
         python3 Ex__1_compute_block_hash.py
 
-    - name: '⚙️ Chapter 17: Run exercise 1, compute block hash (example in Python)'
-      working-directory: 'Chapter17/Answers to Exercises/Code Files'
-      continue-on-error: false
-      run: |
-        python3 Ex__1_compute_block_hash.py
-
     - name: '⚙️ Chapter 18: Run exercise 1/2/3 (examples in Python)'
       working-directory: 'Chapter18/Answers to Exercises/Code Files'
       continue-on-error: false
@@ -220,3 +214,10 @@ jobs:
         python3 Ex__2_load_dataset.py
         python3 Ex__3_create_network.py
         python3 Ex__4_train_model.py
+
+    - name: '⚙️ Chapter 19: Run exercise 3/4 (examples in Python)'
+      working-directory: 'Chapter19/Answers to Exercises/Code Files'
+      continue-on-error: false
+      run: |
+        python3 Ex__3_ghz_sim.py
+        python3 Ex__4_ghz_sim.py
